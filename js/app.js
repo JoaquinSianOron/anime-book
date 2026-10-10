@@ -1,4 +1,4 @@
-import {registerUser, loginUser, logoutUser} from './auth.js';
+import {registerUser, loginUser, logoutUser, watchAuthState} from './auth.js';
 
 
 
@@ -25,8 +25,27 @@ showRegisterBtn.addEventListener('click', () => {
   showRegisterBtn.parentElement.style.display = 'none';
 });
 
-// Por ahora, mostrar login al cargar (luego esto lo decide Firebase Auth)
-showView(authView);
+// Funciones para mostrar vistas específicas
+function showHomeView() {
+  showView(homeView);
+}
+
+function showAuthView() {
+  showView(authView);
+}
+
+// Escuchar cambios en el estado de autenticación
+watchAuthState((user) => {
+  if (user) {
+    // Usuario logueado
+    console.log("Usuario logueado:", user.email);
+    showHomeView();
+  } else {
+    // Usuario no logueado
+    console.log("Usuario no logueado");
+    showAuthView();
+  }
+});
 
 
 
@@ -78,6 +97,6 @@ logoutBtn.addEventListener('click', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log("codigo de error: ", errorCode, "mensaje de error: ", errorMessage);  
-      
+
     })
 });

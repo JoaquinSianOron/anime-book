@@ -1,5 +1,4 @@
 import{
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -18,4 +17,8 @@ export function loginUser(email, password) {
 
 export function logoutUser() {
   return signOut(auth);
+}
+
+export function watchAuthState(callback) {
+  return onAuthStateChanged(auth, callback);
 }
