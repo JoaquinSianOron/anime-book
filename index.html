@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeBOOK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>AnimeBOOK</h1>
+    <button id="logoutBtn" style="display:inline;">Cerrar sesión</button>
+  </header>
+
+  <!-- Vista: Login / Registro -->
+  <section id="authView">
+    
+    <h2>Iniciar sesión</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Correo" required>
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+
+    <p>¿No tienes cuenta? <button id="showRegisterBtn">Regístrate</button></p>
+
+    <form id="registerForm" style="display:none;">
+      <input type="email" id="registerEmail" placeholder="Correo" required>
+      <input type="password" id="registerPassword" placeholder="Contraseña" required>
+      <button type="submit">Crear cuenta</button>
+    </form>
+
+
+  </section>
+
+  <!-- Vista: Home (lista de entradas) -->
+  <section id="homeView" style="display:none;">
+    <button id="newEntryBtn">+ Agregar entrada</button>
+    <div id="entriesGrid"></div>
+  </section>
+
+  <!-- Vista: Formulario de nueva entrada -->
+  <section id="entryFormView" style="display:none;">
+    <h2>Nueva entrada</h2>
+    <form id="entryForm">
+      <input type="text" id="entryTitulo" placeholder="Título" required>
+      <textarea id="entryDescripcion" placeholder="Descripción"></textarea>
+      <input type="url" id="entryFotoUrl" placeholder="URL de la foto">
+      <button type="submit">Guardar</button>
+      <button type="button" id="cancelEntryBtn">Cancelar</button>
+    </form>
+  </section>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
