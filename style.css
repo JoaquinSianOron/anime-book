@@ -101,6 +101,12 @@ textarea {
   resize: vertical;
 }
 
+#authMessage {
+  color: var(--color-primary);
+  min-height: 1.5rem;
+  margin-top: 1rem;
+}
+
 /* ===== Grid de tarjetas (home) ===== */
 #entriesGrid {
   display: grid;
